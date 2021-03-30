@@ -10,6 +10,7 @@ class RidesController < ApplicationController
        redirect_to user_path(ride.user), flash: { message: message }
    else
        message = ride.not_take_ride
+       binding.pry
        redirect_to attraction_path(ride.attraction)
    end
 
