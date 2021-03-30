@@ -4,15 +4,18 @@ class Ride < ActiveRecord::Base
 
   def take_ride
     if take_ride_ok?
-      update_user
       "Thanks for riding the #{self.attraction.name}!"
     end
   end
+
+
+
+
   def take_ride_ok?
-     if  tickets? && self.user.height >= self.attraction.min_height
+     if  tickets? &&
       true
      else
-       false
+     false
      end
   end
 
@@ -20,9 +23,18 @@ class Ride < ActiveRecord::Base
       if self.user.tickets >= self.attraction.tickets
          true
       else
-         "You are not tall enough to ride the #{self.attraction.name}."
+        "You do not have enough tickets to ride the #{self.attraction.name}."
       end
   end
+
+
+def height?
+        if self.user.height >= self.attraction.min_height
+           true
+        else
+           "You are not tall enough to ride the #{self.attraction.name}."
+        end
+end
 
   def update_user
     new_happiness = self.user.happiness + self.attraction.happiness_rating
