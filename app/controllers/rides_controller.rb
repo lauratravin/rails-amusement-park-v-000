@@ -6,8 +6,8 @@ class RidesController < ApplicationController
 
    if ride.take_ride
        ride.save
-      
-       redirect_to user_path(ride.user)
+       message = "Thanks for riding the #{@ferriswheel.name}!"
+       redirect_to user_path(ride.user), flash: { message: message }
    end
 
  end
