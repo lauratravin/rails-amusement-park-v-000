@@ -2,8 +2,9 @@ class RidesController < ApplicationController
   before_action :authentication_required
 
  def create
-   ride = Ride.create(ride_params)
-   if ride
+   ride = Ride.new(ride_params)
+
+   if ride.take_ride
        message = ride.take_ride
        redirect_to user_path(ride.user), flash: { message: message }
    else
