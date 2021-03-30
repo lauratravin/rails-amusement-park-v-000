@@ -31,7 +31,6 @@ end
 
 
 def not_take_ride
-  binding.pry
   if self.user.height <= self.attraction.min_height && self.user.tickets >= self.attraction.tickets
   "You are not tall enough to ride the #{self.attraction.name}."
   end
