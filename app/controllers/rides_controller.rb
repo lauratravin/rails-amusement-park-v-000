@@ -6,6 +6,7 @@ class RidesController < ApplicationController
    message = ride.take_ride
    redirect_to user_path(ride.user), flash: { message: message }
  end
+ 
  private
 
   def ride_params
@@ -14,5 +15,5 @@ class RidesController < ApplicationController
     :attraction_id
     )
   end
-  
+
 end
