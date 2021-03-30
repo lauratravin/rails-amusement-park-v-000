@@ -11,6 +11,32 @@ class AttractionsController < ApplicationController
 
   end
 
+  def create
+  attraction = Attraction.create(attraction_params)
+  redirect_to attraction_path(attraction)
+end
+
+def edit
+  @attraction = Attraction.find_by(id: params[:id])
+  @ride = @attraction.rides.build(user_id: current_user.id)
+end
+
+def update
+  attraction = Attraction.find_by(id: params[:id])
+  attraction.update(attraction_params)
+  redirect_to attraction_path(attraction)
+end
+
+
+
+
+
+
+
+
+
+
+
   private
   def find_attraction
     @attraction = Attraction.find_by(id: params[:id])
