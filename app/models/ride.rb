@@ -12,7 +12,7 @@ class Ride < ActiveRecord::Base
 
 
   def take_ride_ok?
-     if  tickets? &&
+     if  tickets? && height?
       true
      else
      false
