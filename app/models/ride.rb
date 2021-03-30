@@ -35,7 +35,7 @@ def not_take_ride
   if self.user.height < self.attraction.min_height && self.user.tickets > self.attraction.tickets
   "You are not tall enough to ride the #{self.attraction.name}."
   end
-  
+
   if  self.user.height > self.attraction.min_height && self.user.tickets < self.attraction.tickets
   "You do not have enough tickets to ride the #{self.attraction.name}."
   end
