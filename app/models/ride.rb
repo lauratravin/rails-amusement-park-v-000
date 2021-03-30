@@ -2,20 +2,13 @@ class Ride < ActiveRecord::Base
   belongs_to :user
   belongs_to :attraction
 
-  def take_ride
-    if take_ride_ok?
-      "Thanks for riding the #{self.attraction.name}!"
-    end
-  end
-
-
 
 
   def take_ride_ok?
      if  tickets? && height?
       true
      else
-     false
+      false
      end
   end
 
@@ -36,6 +29,10 @@ def height?
         end
 end
 
+
+
+
+
   def update_user
     new_happiness = self.user.happiness + self.attraction.happiness_rating
     new_nausea = self.user.nausea + self.attraction.nausea_rating
@@ -45,5 +42,7 @@ end
       :nausea => new_nausea,
       :tickets => new_ticket_count
     )
+    "Thanks for riding the #{self.attraction.name}!"
+
   end
 end
