@@ -9,7 +9,7 @@ class Ride < ActiveRecord::Base
     end
   end
   def take_ride_ok?
-     if  && self.user.height >= self.attraction.min_height
+     if  tickets? && self.user.height >= self.attraction.min_height
       true
      else
        false
