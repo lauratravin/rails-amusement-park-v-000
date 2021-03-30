@@ -11,7 +11,8 @@ class RidesController < ApplicationController
    else
        message = ride.not_take_ride
       #  binding.pry
-       redirect_to attraction_path(ride.attraction), flash: { message: message }
+      #  redirect_to attraction_path(ride.attraction), flash: { message: message }
+       redirect_to user_path(ride.user), flash: { message: message }
    end
 
  end
