@@ -5,6 +5,7 @@ class Ride < ActiveRecord::Base
   def take_ride
     if take_ride_ok?
       update_user
+      true
     end
   end
   def take_ride_ok?
@@ -25,6 +26,5 @@ class Ride < ActiveRecord::Base
       :nausea => new_nausea,
       :tickets => new_ticket_count
     )
-    "Thanks for riding the #{self.attraction.name}!"
   end
 end
