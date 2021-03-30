@@ -1,7 +1,7 @@
 class AttractionsController < ApplicationController
   before_action :find_attraction, only: [:show, :edit, :update]
   before_action :authentication_required
-  
+
   def index
     @attractions = Attraction.all
   end
@@ -10,6 +10,10 @@ class AttractionsController < ApplicationController
     # create this instance to use it in the view show, it has already the user and the attraction.
     @ride = @attraction.rides.build(user_id: current_user.id)
 
+  end
+
+  def new
+    @attraction = Attraction.new
   end
 
   def create
