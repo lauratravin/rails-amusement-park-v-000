@@ -4,10 +4,9 @@ class RidesController < ApplicationController
  def create
    ride = Ride.new(ride_params)
 
-   if ride.take_ride
+   if ride.take_ride_ok?
        ride.save
-       ride.update_user
-       message = ride.take_ride
+       message = ride.update_user
        redirect_to user_path(ride.user), flash: { message: message }
    end
 
