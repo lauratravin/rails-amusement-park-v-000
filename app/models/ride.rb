@@ -5,7 +5,7 @@ class Ride < ActiveRecord::Base
   def take_ride
     if take_ride_ok?
       update_user
-      true
+      "Thanks for riding the #{self.attraction.name}!"
     end
   end
   def take_ride_ok?
