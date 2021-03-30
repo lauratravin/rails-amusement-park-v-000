@@ -3,3 +3,7 @@
   <%= attraction.name %> | tickets: <%= attraction.tickets %> |
     <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>  <br/>
   <% end %>
+
+ <% if current_user.admin %>
+  <%= link_to "Back to profile", user_path(@user) %>
+<% end %>  
