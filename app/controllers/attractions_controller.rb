@@ -29,14 +29,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
   private
   def find_attraction
     @attraction = Attraction.find_by(id: params[:id])
