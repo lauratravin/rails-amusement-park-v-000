@@ -5,6 +5,7 @@ class RidesController < ApplicationController
    ride = Ride.new(ride_params)
 
    if ride.take_ride
+       ride.save
        message = ride.take_ride
        redirect_to user_path(ride.user), flash: { message: message }
    end
