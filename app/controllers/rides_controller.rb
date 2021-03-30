@@ -8,6 +8,9 @@ class RidesController < ApplicationController
        ride.save
        message = ride.update_user
        redirect_to user_path(ride.user), flash: { message: message }
+   else
+       message = not_take_ride
+       redirect_to attraction_path(ride.attraction)
    end
 
  end
